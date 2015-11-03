@@ -1,0 +1,20 @@
+--- a/app/application/models/content.php	2015-11-02 14:34:08.820323034 -0800
++++ b/app/application/models/content.php	2015-11-02 14:34:55.527732390 -0800
+@@ -712,7 +712,7 @@
+ 		$info = pathinfo($path);
+ 		$koken_url_info = $this->config->item('koken_url_info');
+ 		$prefix = $info['filename'];
+-		$cache_base = $koken_url_info->base . (KOKEN_REWRITE ? 'storage/cache/images' : 'i.php?') . '/custom/' . $prefix . '-' . $info['extension'] . '/';
++		$cache_base = '/' . (KOKEN_REWRITE ? 'storage/cache/images' : 'i.php?') . '/custom/' . $prefix . '-' . $info['extension'] . '/';
+ 
+ 		$data = array(
+ 			'__koken__' => 'content',
+@@ -920,7 +920,7 @@
+ 					$info = pathinfo($preview_file);
+ 				}
+ 
+-				$cache_base = $koken_url_info->base . (KOKEN_REWRITE ? 'storage/cache/images' : 'i.php?') . '/' . str_replace('\\', '/', $this->cache_path) . '/' . $prefix . ',';
++				$cache_base = '/' . (KOKEN_REWRITE ? 'storage/cache/images' : 'i.php?') . '/' . str_replace('\\', '/', $this->cache_path) . '/' . $prefix . ',';
+ 
+ 				$data['cache_path'] = array(
+ 					'prefix' => $cache_base

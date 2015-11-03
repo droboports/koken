@@ -1,0 +1,1 @@
+<p>Information about configuring and managing your <?php echo $appname; ?> site can be found in the <a href="<?php echo $apphelp; ?>" target="_new"><?php echo $appname; ?> support pages</a>.</p>

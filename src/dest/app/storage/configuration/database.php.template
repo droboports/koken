@@ -1,0 +1,10 @@
+<?php
+$KOKEN_DATABASE = array(
+  'driver' => 'mysqli',
+  'hostname' => 'localhost',
+  'database' => 'koken',
+  'username' => 'koken',
+  'password' => '##0##',
+  'prefix' => 'koken_',
+  'socket' => ''
+);
