@@ -15,6 +15,6 @@ set -o errexit  # exit on uncaught error code
 set -o nounset  # exit on unset variable
 set -o xtrace   # enable script tracing
 
-/bin/sh "${prog_dir}/service.sh" stop
+/bin/sh "${prog_dir}/service.sh" stop || true
 
 /bin/touch "${prog_dir}/.update"
