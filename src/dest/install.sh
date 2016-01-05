@@ -24,11 +24,19 @@ if ! /usr/bin/DroboApps.sh sdk_version &> /dev/null; then
   echo "4" > "${errorfile}"
 fi
 
-# install apache 2+
-/usr/bin/DroboApps.sh install_version apache 2
+# install apache >= 2.4.17
+/usr/bin/DroboApps.sh install_version apache 2.4.17
 
-# install mysql 5.6.26+
+# install mysql >= 5.6.26
 /usr/bin/DroboApps.sh install_version mysql 5.6.26
+
+# copy default configuration files
+find "${prog_dir}" -type f -name "*.default" -print | while read deffile; do
+  basefile="$(dirname "${deffile}")/$(basename "${deffile}" .default)"
+  if [ ! -f "${basefile}" ]; then
+    cp -vf "${deffile}" "${basefile}"
+  fi
+done
 
 # migrate data folder to /mnt/DroboFS/Shares/DroboApps/.AppData
 if [ ! -d "${data_dir}" ]; then
@@ -64,13 +72,16 @@ fi
 cp -vf "${prog_dir}/app/storage/configuration/database.php.template" "${prog_dir}/app/storage/configuration/database.php"
 sed -e "s|##0##|${kokenpass}|g" -i "${prog_dir}/app/storage/configuration/database.php"
 
-# copy default configuration files
-find "${prog_dir}" -type f -name "*.default" -print | while read deffile; do
-  basefile="$(dirname "${deffile}")/$(basename "${deffile}" .default)"
-  if [ ! -f "${basefile}" ]; then
-    cp -vf "${deffile}" "${basefile}"
-  fi
-done
+# generate cert/key
+mkdir -p "${data_dir}/certs"
+if [ ! -f "${data_dir}/certs/cert.pem" ] || \
+   [ ! -f "${data_dir}/certs/key.pem" ]; then
+  "/mnt/DroboFS/Shares/DroboApps/apache/libexec/openssl" req -new -x509 \
+    -keyout "${data_dir}/certs/key.pem" \
+    -out "${data_dir}/certs/cert.pem" \
+    -days 3650 -nodes -subj "/C=US/ST=CA/L=San Jose/CN=$(hostname)"
+  chmod 640 "${data_dir}/certs/cert.pem" "${data_dir}/certs/key.pem"
+fi
 
 # upgrade steps
 if [ ! -f "${prog_dir}/.update" ]; then

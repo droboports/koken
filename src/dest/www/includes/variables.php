@@ -1,7 +1,7 @@
 <?php 
 $app = "koken";
 $appname = "Koken";
-$appversion = "0.21.4";
+$appversion = "0.21.9";
 $appsite = "http://koken.me/";
 $apphelp = "http://help.koken.me/";
 
@@ -11,10 +11,10 @@ $applogs = array("/tmp/DroboApps/".$app."/log.txt",
                  "/tmp/DroboApps/".$app."/install.log",
                  "/tmp/DroboApps/".$app."/update.log");
 
-$appprotos = array("http");
+$appprotos = array("https");
 $appports = array("8040");
 $droboip = $_SERVER['SERVER_ADDR'];
-$apppage = $appprotos[0]."://".$droboip.":".$appports[0]."/";
+$apppage = $appprotos[0]."://".$droboip.":".$appports[0]."/admin/";
 if ($publicip != "") {
   $publicurl = $appprotos[0]."://".$publicip.":".$appports[0]."/";
 } else {

@@ -30,7 +30,7 @@ EOF
 rm -fR "${data_dir}/storage/originals"
 mkdir -p "${data_dir}/storage/originals"
 
-/bin/cp -f "${prog_dir}/etc/installer.php" "${prog_dir}/app/index.php"
+/bin/cp -f "${prog_dir}/etc/index.php" "${prog_dir}/app/index.php"
 /bin/touch "${prog_dir}/app/ready.txt"
 /bin/rm -f "${prog_dir}/app/.htaccess"
 
