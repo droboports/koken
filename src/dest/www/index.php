@@ -80,9 +80,11 @@ include('includes/appstatus.php');
 <?php if ($apprunning) { ?>
       <a role="button" class="btn btn-primary" href="?op=stop" onclick="$('#pleaseWaitDialog').modal(); return true"><span class="glyphicon glyphicon-stop"></span> Stop</a>
       <a role="button" class="btn btn-primary" href="<?php echo $apppage; ?>" target="_new"><span class="glyphicon glyphicon-globe"></span> Go to App</a>
+      <a role="button" class="btn btn-primary" href="<?php echo $adminpage; ?>" target="_new"><span class="glyphicon glyphicon-globe"></span> Go to Admin</a>
 <?php } else { ?>
       <a role="button" class="btn btn-primary" href="?op=start" onclick="$('#pleaseWaitDialog').modal(); return true"><span class="glyphicon glyphicon-play"></span> Start</a>
       <a role="button" class="btn btn-primary disabled" href="<?php echo $apppage; ?>" target="_new"><span class="glyphicon glyphicon-globe"></span> Go to App</a>
+      <a role="button" class="btn btn-primary disabled" href="<?php echo $adminpage; ?>" target="_new"><span class="glyphicon glyphicon-globe"></span> Go to Admin</a>
 <?php } ?>
       <a role="button" class="btn btn-primary" href="<?php echo $apphelp; ?>" target="_new"><span class="glyphicon glyphicon-question-sign"></span> Help</a>
     </div>

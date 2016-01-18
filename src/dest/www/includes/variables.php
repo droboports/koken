@@ -14,7 +14,8 @@ $applogs = array("/tmp/DroboApps/".$app."/log.txt",
 $appprotos = array("https");
 $appports = array("8040");
 $droboip = $_SERVER['SERVER_ADDR'];
-$apppage = $appprotos[0]."://".$droboip.":".$appports[0]."/admin/";
+$apppage = $appprotos[0]."://".$droboip.":".$appports[0]."/";
+$adminpage = $appprotos[0]."://".$droboip.":".$appports[0]."/admin/";
 if ($publicip != "") {
   $publicurl = $appprotos[0]."://".$publicip.":".$appports[0]."/";
 } else {
