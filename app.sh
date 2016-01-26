@@ -121,7 +121,7 @@ popd
 ### IMAGEMAGICK ###
 _build_imagemagick() {
 local MAJOR="6.9.3"
-local VERSION="${MAJOR}-0"
+local VERSION="${MAJOR}-2"
 local FOLDER="ImageMagick-${VERSION}"
 local FILE="${FOLDER}.tar.xz"
 local URL="http://sourceforge.net/projects/imagemagick/files/${MAJOR}-sources/${FILE}"
