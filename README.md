@@ -29,6 +29,16 @@ Each invocation creates a log file with all the generated output.
 
 ## Sources
 
+* zlib: http://zlib.net/
+* bzip: http://www.bzip.org/
+* liblzma: http://tukaani.org/xz/
+* libjpeg: http://www.ijg.org/
+* libpng: http://www.libpng.org/pub/png/libpng.html
+* libtiff: http://www.libtiff.org/
+* libxml2: http://www.xmlsoft.org/
+* graphicsmagick: http://www.graphicsmagick.org/
+* imagemagick: http://www.imagemagick.org/
+* ffmpeg: https://www.ffmpeg.org/
 * koken: http://koken.me
 
 <sub>**Disclaimer**</sub>

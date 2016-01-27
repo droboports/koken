@@ -1,7 +1,7 @@
 <?php 
 $app = "koken";
 $appname = "Koken";
-$appversion = "0.21.9";
+$appversion = "0.21.11";
 $appsite = "http://koken.me/";
 $apphelp = "http://help.koken.me/";
 

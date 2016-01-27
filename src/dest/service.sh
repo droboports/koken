@@ -7,7 +7,7 @@
 
 framework_version="2.1"
 name="koken"
-version="0.21.9"
+version="0.21.11"
 description="Content management and web site publishing for photographers"
 depends="apache mysql"
 webui="WebUI"

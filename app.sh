@@ -68,7 +68,7 @@ popd
 
 ### LIBPNG ###
 _build_libpng() {
-local VERSION="1.6.20"
+local VERSION="1.6.21"
 local FOLDER="libpng-${VERSION}"
 local FILE="${FOLDER}.tar.gz"
 local URL="http://sourceforge.net/projects/libpng/files/libpng16/${VERSION}/${FILE}"
@@ -130,7 +130,9 @@ _download_xz "${FILE}" "${URL}" "${FOLDER}"
 pushd "target/${FOLDER}"
 PKG_CONFIG_PATH="${DEST}/lib/pkgconfig" \
   ./configure --host="${HOST}" --prefix="${DEPS}" \
-    --libdir="${DEST}/lib" --bindir="${DEST}/libexec" --enable-shared --disable-static
+    --libdir="${DEST}/lib" --bindir="${DEST}/libexec" --enable-shared --disable-static \
+    --with-{bzlib,jpeg,lzma,png,tiff,xml,zlib} \
+    --without-{djvu,dps,fftw,fontconfig,fpx,freetype,gvc,lqr,pango,webp,wmf}
 make
 make install
 popd
@@ -157,7 +159,7 @@ popd
 
 ### FFMPEG ###
 _build_ffmpeg() {
-local VERSION="2.8.4"
+local VERSION="2.8.5"
 local FOLDER="ffmpeg-${VERSION}"
 local FILE="${FOLDER}.tar.gz"
 local URL="http://www.ffmpeg.org/releases/${FILE}"
@@ -176,7 +178,7 @@ popd
 
 ### KOKEN ###
 _build_koken() {
-local VERSION="0.21.9"
+local VERSION="0.21.11"
 local FOLDER="koken"
 local FILE="latest.zip"
 local URL="https://s3.amazonaws.com/koken-installer/releases/${FILE}"
